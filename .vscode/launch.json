@@ -1,0 +1,30 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - ServiceRegistryApplication",
+            "request": "launch",
+            "mainClass": "com.jakuza.serviceregistry.ServiceRegistryApplication"
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-CarservicesApplication<carservices>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "mainClass": "com.jakuza.carservices.CarservicesApplication",
+            "projectName": "carservices",
+            "args": ""
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-ServiceRegistryApplication<service-registry>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "mainClass": "com.jakuza.serviceregistry.ServiceRegistryApplication",
+            "projectName": "service-registry",
+            "args": ""
+        }
+    ]
+}
