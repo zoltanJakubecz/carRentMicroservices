@@ -25,6 +25,16 @@
             "mainClass": "com.jakuza.serviceregistry.ServiceRegistryApplication",
             "projectName": "service-registry",
             "args": ""
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-AppuserServiceApplication<appuser-service>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "mainClass": "com.jakuza.appuserservice.AppuserServiceApplication",
+            "projectName": "appuser-service",
+            "args": ""
         }
     ]
 }
