@@ -35,6 +35,16 @@
             "mainClass": "com.jakuza.appuserservice.AppuserServiceApplication",
             "projectName": "appuser-service",
             "args": ""
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-RentServiceApplication<rent-service>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "mainClass": "com.jakuza.rentservice.RentServiceApplication",
+            "projectName": "rent-service",
+            "args": ""
         }
     ]
 }
