@@ -15,9 +15,9 @@ public class RentalIncomeDto {
     
     private Long id;
 
-    private CarDto car;
+    private Long car_id;
     
-    private AppUserDto user;
+    private Long user_id;
 
     private LocalDateTime rentFrom;
 
