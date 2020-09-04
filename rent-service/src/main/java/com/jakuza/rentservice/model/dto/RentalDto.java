@@ -13,8 +13,6 @@ import lombok.NoArgsConstructor;
 @Builder
 public class RentalDto {
 
-    private Long id;
-
     private Long car_id;
     
     private LocalDateTime rentFrom;
