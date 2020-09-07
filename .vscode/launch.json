@@ -45,6 +45,16 @@
             "mainClass": "com.jakuza.rentservice.RentServiceApplication",
             "projectName": "rent-service",
             "args": ""
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-ApiGatewayApplication<api-gateway>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "mainClass": "com.jakuza.apigateway.ApiGatewayApplication",
+            "projectName": "api-gateway",
+            "args": ""
         }
     ]
 }
