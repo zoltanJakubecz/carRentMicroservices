@@ -1,10 +1,8 @@
 package com.jakuza.rentservice.service;
 
 import java.util.List;
-import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
-import com.jakuza.rentservice.model.Rental;
 import com.jakuza.rentservice.model.dto.RentalDto;
 import com.jakuza.rentservice.repository.RentalRepository;
 
