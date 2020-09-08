@@ -13,8 +13,6 @@ import lombok.NoArgsConstructor;
 @Builder
 public class RentalIncomeDto {
     
-    private Long id;
-
     private Long car_id;
     
     private Long user_id;
