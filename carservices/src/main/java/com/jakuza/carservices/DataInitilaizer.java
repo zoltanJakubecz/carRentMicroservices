@@ -33,8 +33,17 @@ public class DataInitilaizer implements CommandLineRunner {
             .added(LocalDateTime.now())
             .build();
 
+        Car opel = Car.builder()
+            .brand("Opel")
+            .model("Mokka")
+            .regPlate("ZOI-531")
+            .active(true)
+            .added(LocalDateTime.now())
+            .build();
+
         carRepository.save(trabant);
         carRepository.save(bmw);
+        carRepository.save(opel);
 
     }
     
