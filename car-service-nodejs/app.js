@@ -11,7 +11,6 @@ app.use(express.json());
 
 app.use('/api/cars', carRoute);
 
-// ------------------ Eureka Config --------------------------------------------
 
 const eureka = require('./config/service.registry.config');
 
@@ -19,9 +18,6 @@ eureka.logger.level('debug');
 eureka.start(function(error){
   console.log(error || 'Eureka connection complete');
 });
-
-
-// ------------------ Server Config --------------------------------------------
 
 
 
