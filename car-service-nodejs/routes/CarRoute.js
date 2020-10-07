@@ -1,15 +1,12 @@
 const express = require('express');
 const pool = require('../database/db');
+const service = require('../services/car.sevice')
 
 const router = express.Router();
 
 router.get('/', async (req, res) => {
-    try {
-        const cars = await pool.query("SELECT * FROM car;");
+        const cars = await service.getCars();
         res.send(cars.rows);
-    } catch (err) {
-        console.error(err.message)
-    }
     
 })
 
