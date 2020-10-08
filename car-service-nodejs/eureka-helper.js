@@ -20,7 +20,6 @@ exports.registerWithEureka = function(appName, PORT) {
         name: 'MyOwn',
       },
     },
-    //retry 10 time for 3 minute 20 seconds.
     eureka: {
       host: eurekaHost,
       port: eurekaPort,
@@ -49,7 +48,6 @@ function exitHandler(options, exitCode) {
 
 client.on('deregistered', () => {
     process.exit();
-    console.log('after deregistered');
 })
 
 client.on('started', () => {
