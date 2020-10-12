@@ -1,17 +1,17 @@
 const pool = require('../database/db');
 
 
-const getCars = () => {
+const getCars = async () => {
     try {
-        return pool.query("SELECT * FROM car;");
+        return await pool.query("SELECT * FROM car;");
     } catch (error) {
         console.error(error.message);
     }
     
 };
 
-const find = (id) => {
-    return pool.query("SELECT * FROM car WHERE id = $1", [id]);
+const find = async (id) => {
+    return await pool.query("SELECT * FROM car WHERE id = $1", [id]);
 }
 
 
