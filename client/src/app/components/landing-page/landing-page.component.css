@@ -1,10 +1,12 @@
 @import url("https://fonts.googleapis.com/css?family=Permanent+Marker");
 
 .cover {
-    min-height: 98%;
+	
 }
 
 .cover {
+	font-family: Lato;
+	color: white;
     background-image: linear-gradient(to bottom, rgba(0,0,0,0.1) 0%,rgba(0,0,0,0.1) 100%), url('../../../static/imgs/auto4.jpg');
     background-size: cover;
 	background-position: center;
@@ -14,7 +16,7 @@
 } 
 
 .cname {
-    color: aliceblue;
+    color: rgb(161, 206, 245);
 	font-family: Permanent Marker;
 	font-size: 6em;
 	letter-spacing: 0.1em;
