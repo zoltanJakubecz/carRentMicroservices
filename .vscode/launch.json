@@ -2,6 +2,12 @@
     "configurations": [
         {
             "type": "java",
+            "name": "CodeLens (Launch) - GatewayApplication",
+            "request": "launch",
+            "mainClass": "com.jakuza.gateway.GatewayApplication"
+        },
+        {
+            "type": "java",
             "name": "CodeLens (Launch) - ServiceRegistryApplication",
             "request": "launch",
             "mainClass": "com.jakuza.serviceregistry.ServiceRegistryApplication"
@@ -54,6 +60,16 @@
             "console": "internalConsole",
             "mainClass": "com.jakuza.apigateway.ApiGatewayApplication",
             "projectName": "api-gateway",
+            "args": ""
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-GatewayApplication<gateway>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "mainClass": "com.jakuza.gateway.GatewayApplication",
+            "projectName": "gateway",
             "args": ""
         }
     ]
