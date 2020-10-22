@@ -8,7 +8,6 @@ router.get('/', async (req, res) => {
         const cars = await service.getCars();
         for(car of cars.rows){
             car.image =  `http://localhost:8762/imgs/${car.image}`;
-            console.log(car);
         }
         res.status(200).json(cars.rows);
 
