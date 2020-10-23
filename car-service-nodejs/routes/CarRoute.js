@@ -22,5 +22,11 @@ router.get('/:id', async (req, res) => {
 });
 
 
+router.post('/', (req, res) => {
+    service.addCar(req.body);
+    res.send("Helly");
+})
+
+
 
 module.exports = router;
