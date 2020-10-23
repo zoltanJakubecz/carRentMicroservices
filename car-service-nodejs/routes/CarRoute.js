@@ -22,9 +22,16 @@ router.get('/:id', async (req, res) => {
 });
 
 
-router.post('/', (req, res) => {
-    service.addCar(req.body);
-    res.send("Helly");
+router.post('/', async (req, res) => {
+    const newCar = await service.addCar(req.body);
+    res.send(newCar.rows[0]);
+});
+
+router.put('/:id', async (req,res) => {
+    const { id } = req.params;
+    const updateCar = await service.update(id, req.body);
+    console.log(updateCar);
+    res.send(updateCar.rows[0]);
 })
 
 
