@@ -19,7 +19,8 @@ const addCar = async (newCar) => {
     const {brand, model, reg_plate} = newCar;
     const id = uuid.v4();
     const active = true;
-    return await pool.query("INSERT INTO car (id, brand, model, active, reg_plate) VALUES ($1, $2, $3, $4, $5)", [id, brand, model, active, reg_plate]);
+    const added = new Date(Date.now());
+    return await pool.query("INSERT INTO car (id, brand, model, active, reg_plate, added) VALUES ($1, $2, $3, $4, $5, $6)", [id, brand, model, active, reg_plate, added]);
 }
 
 
