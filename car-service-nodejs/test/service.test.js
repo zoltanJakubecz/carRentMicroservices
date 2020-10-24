@@ -3,11 +3,13 @@ const sinon = require('sinon');
 const expect = require( "chai").expect;
 
 describe("Service tests", () => {
+
     afterEach(() => {
       sinon.restore();
     });
+
     it("should get all the cars", async () => {
-      const mPool = { query: sinon.stub().resolves({ rows: [
+      let mmPool = { query: sinon.stub().resolves({ rows: [
         {
             "id": "0186758a-f1fd-43ef-aca5-68d1b9908379",
             "active": true,
@@ -26,12 +28,13 @@ describe("Service tests", () => {
             "model": "Mustang",
             "reg_plate": "HHH-123"
             }
-      ] }) };
-      const poolStub = sinon.stub(pg, "Pool").callsFake(() => mPool);
+        ]})
+     };
+      const poolStub = sinon.stub(pg, "Pool").callsFake(() => mmPool);
       const service = require("../services/car.sevice");
-      const actual = await service.getCars();
+      let actual = await service.getCars();
       expect(actual.rows.length).to.equal(2);
       sinon.assert.calledOnce(poolStub);
-      sinon.assert.calledOnce(mPool.query);
+      sinon.assert.calledOnce(mmPool.query);
     });
   });
