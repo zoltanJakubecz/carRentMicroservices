@@ -2,12 +2,13 @@ const express = require('express');
 const service = require('../services/car.sevice')
 
 const router = express.Router();
+const baseUrl = process.env.BACKEND_URL;
 
 router.get('/', async (req, res) => {
         try {
             const cars = await service.getCars();
             for(car of cars.rows){
-                car.image =  `http://localhost:8762/imgs/${car.image}`;
+                if(car.image) car.image = `${baseUrl}/imgs/${car.image}`;
             }
             res.status(200).json(cars.rows);            
         } catch (error) {
