@@ -34,7 +34,7 @@ public class DataInitializer implements CommandLineRunner {
     AppUser rentAppUser2 = AppUser.builder()
         .firstName("Elemer")
         .lastName("Lapos")
-        .email("zulu@kakker.hu")
+        .email("zulu@makker.hu")
         .phoneNumber("999-6666")
         .added(LocalDateTime.now())
         .build();

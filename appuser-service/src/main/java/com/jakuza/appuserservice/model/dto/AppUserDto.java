@@ -35,6 +35,7 @@ public class AppUserDto {
                     .email(user.getEmail())
                     .firstName(user.getFirstName())
                     .lastName(user.getLastName())
+                    .phoneNumbers(user.getPhoneNumbers())
                     .passwd(user.getPasswd())
                     .build();
 

@@ -7,6 +7,7 @@ import java.util.UUID;
 import javax.persistence.Column;
 import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
@@ -22,6 +23,7 @@ import lombok.Singular;
 @AllArgsConstructor
 @Data
 @Builder
+
 public class AppUser {
     @Id
     @GeneratedValue
@@ -39,7 +41,7 @@ public class AppUser {
     @Column(unique = true, nullable = false)
     private String email;
     
-    @ElementCollection
+    @ElementCollection(fetch = FetchType.EAGER)
     @Singular
     private Set<String> phoneNumbers;
 

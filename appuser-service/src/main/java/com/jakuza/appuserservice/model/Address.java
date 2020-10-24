@@ -1,6 +1,7 @@
 package com.jakuza.appuserservice.model;
 
 import java.util.Set;
+import java.util.UUID;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -20,10 +21,13 @@ import lombok.Singular;
 @Data
 @Builder
 public class Address {
+
     @Id
     @GeneratedValue
-    private Long id;
+    private UUID id;
+
     private String country;
+
     private String city;
     
     @Singular
@@ -32,7 +36,10 @@ public class Address {
     private Set<AppUser> rentAppUsers;
     
     private String street;
+    
     private String houseName;
+    
     private String houseNumber;
+    
     private String zipCode;
 }
