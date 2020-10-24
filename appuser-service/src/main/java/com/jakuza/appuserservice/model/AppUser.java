@@ -2,6 +2,7 @@ package com.jakuza.appuserservice.model;
 
 import java.time.LocalDateTime;
 import java.util.Set;
+import java.util.UUID;
 
 import javax.persistence.Column;
 import javax.persistence.ElementCollection;
@@ -24,7 +25,7 @@ import lombok.Singular;
 public class AppUser {
     @Id
     @GeneratedValue
-    private Long id;
+    private UUID id;
     
     private String firstName;
     

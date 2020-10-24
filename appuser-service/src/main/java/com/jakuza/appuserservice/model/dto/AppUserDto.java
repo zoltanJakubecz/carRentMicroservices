@@ -1,6 +1,7 @@
 package com.jakuza.appuserservice.model.dto;
 
 import java.util.Set;
+import java.util.UUID;
 
 import com.jakuza.appuserservice.model.AppUser;
 
@@ -15,7 +16,7 @@ import lombok.NoArgsConstructor;
 @Builder
 public class AppUserDto {
     
-    private Long id;
+    private UUID id;
     
     private String firstName;
     

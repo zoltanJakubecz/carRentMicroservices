@@ -1,6 +1,7 @@
 package com.jakuza.appuserservice.service;
 
 import java.util.List;
+import java.util.UUID;
 import java.util.stream.*;
 
 import com.jakuza.appuserservice.model.dto.AppUserDto;
@@ -17,6 +18,10 @@ public class AppUserService {
 
 	public List<AppUserDto> getUsers() {
 		return userRepository.findAll().stream().map(AppUserDto::fromEntity).collect(Collectors.toList());
+	}
+
+	public AppUserDto findUser(UUID id) {
+		return AppUserDto.fromEntity(userRepository.findById(id).get());
 	}
 
     
