@@ -27,7 +27,7 @@ public class AppUserService {
 	}
 
 	public AppUserDto findUser(UUID id) {
-		return AppUserDto.fromEntity(userRepository.findById(id).get());
+		return AppUserDto.fromEntity(userRepository.findById(id).orElse(null));
 	}
 
 	public AppUserDto addUser(AppUserRegisterDto userToAdd){
@@ -41,6 +41,16 @@ public class AppUserService {
 
 		userRepository.save(newUser);
 		return AppUserDto.fromEntity(newUser);
+	}
+
+	public AppUserDto updateUser(UUID id, AppUserDto user) {
+		AppUser userToUpdade = userRepository.findById(id).orElse(null);
+		if (userToUpdade == null) return null;
+		userToUpdade.setFirstName(user.getFirstName());
+		userToUpdade.setLastName(user.getLastName());
+		userToUpdade.setEmail(user.getEmail());
+		userRepository.save(userToUpdade);
+		return AppUserDto.fromEntity(userToUpdade);
 	}
 
     
