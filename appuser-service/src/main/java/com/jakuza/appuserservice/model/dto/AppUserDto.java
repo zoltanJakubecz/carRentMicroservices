@@ -22,7 +22,6 @@ public class AppUserDto {
     
     private String lastName;
 
-
     private String email;
     
     private Set<String> phoneNumbers;
