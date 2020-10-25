@@ -30,10 +30,6 @@ public class Rental {
     @Column(name = "id", updatable = false, nullable = false)
     private UUID id;
 
-    // @Id
-    // @GeneratedValue
-    // private UUID id;
-
     private UUID carId;
     
     private UUID userId;
