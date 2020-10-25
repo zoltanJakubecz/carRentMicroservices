@@ -1,6 +1,7 @@
 package com.jakuza.rentservice.model;
 
 import java.time.LocalDateTime;
+import java.util.UUID;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -21,11 +22,11 @@ public class Rental {
 
     @Id
     @GeneratedValue
-    private Long id;
+    private UUID id;
 
-    private Long car_id;
+    private UUID car_id;
     
-    private Long user_id;
+    private UUID user_id;
 
     @Column(nullable = false)
     private LocalDateTime rentFrom;
