@@ -49,6 +49,8 @@ public class DataInitializer implements CommandLineRunner {
         .country("Hungary")
         .city("Gyula")
         .street("Ady")
+        .houseNumber("36")
+        .zipCode("5700")
         .rentAppUser(rentAppUser1)
         .rentAppUser(rentAppUser2)
         .build();
