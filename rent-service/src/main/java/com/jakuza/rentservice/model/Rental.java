@@ -8,6 +8,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
+import org.hibernate.annotations.GenericGenerator;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -19,14 +21,22 @@ import lombok.NoArgsConstructor;
 @Data
 @Builder
 public class Rental {
-
     @Id
-    @GeneratedValue
+    @GeneratedValue(generator = "UUID")
+    @GenericGenerator(
+        name = "UUID",
+        strategy = "org.hibernate.id.UUIDGenerator"
+    )
+    @Column(name = "id", updatable = false, nullable = false)
     private UUID id;
 
-    private UUID car_id;
+    // @Id
+    // @GeneratedValue
+    // private UUID id;
+
+    private UUID carId;
     
-    private UUID user_id;
+    private UUID userId;
 
     @Column(nullable = false)
     private LocalDateTime rentFrom;

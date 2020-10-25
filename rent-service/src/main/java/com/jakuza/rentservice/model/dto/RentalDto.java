@@ -24,7 +24,7 @@ public class RentalDto {
 
     public static RentalDto fromEntity(Rental rental){
         return RentalDto.builder()
-                .car_id(rental.getCar_id())
+                .car_id(rental.getCarId())
                 .rentFrom(rental.getRentFrom())
                 .rentTo(rental.getRentTo())
                 .build();
