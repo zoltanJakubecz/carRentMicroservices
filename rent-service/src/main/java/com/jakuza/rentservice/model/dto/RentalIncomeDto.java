@@ -1,6 +1,7 @@
 package com.jakuza.rentservice.model.dto;
 
 import java.time.LocalDateTime;
+import java.util.UUID;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -13,9 +14,9 @@ import lombok.NoArgsConstructor;
 @Builder
 public class RentalIncomeDto {
     
-    private Long car_id;
+    private UUID car_id;
     
-    private Long user_id;
+    private UUID user_id;
 
     private LocalDateTime rentFrom;
 
