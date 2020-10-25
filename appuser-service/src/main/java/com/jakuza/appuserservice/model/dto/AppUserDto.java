@@ -3,6 +3,7 @@ package com.jakuza.appuserservice.model.dto;
 import java.util.Set;
 import java.util.UUID;
 
+import com.jakuza.appuserservice.model.Address;
 import com.jakuza.appuserservice.model.AppUser;
 
 import lombok.AllArgsConstructor;
@@ -23,6 +24,8 @@ public class AppUserDto {
     private String lastName;
 
     private String email;
+
+    private String address;
     
     private Set<String> phoneNumbers;
 
@@ -33,6 +36,7 @@ public class AppUserDto {
                     .email(user.getEmail())
                     .firstName(user.getFirstName())
                     .lastName(user.getLastName())
+                    .address(user.getAddress().toString())
                     .phoneNumbers(user.getPhoneNumbers())
                     .build();
 
