@@ -23,4 +23,16 @@ public class AppUserRegisterDto {
     
     private Set<String> phoneNumbers;
 
+    private String country;
+
+    private String city;
+
+    private String street;
+    
+    private String houseName;
+    
+    private String houseNumber;
+    
+    private String zipCode;
+
 }

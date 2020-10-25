@@ -1,12 +1,15 @@
 package com.jakuza.appuserservice.service;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.UUID;
 import java.util.stream.*;
 
+import com.jakuza.appuserservice.model.Address;
 import com.jakuza.appuserservice.model.AppUser;
 import com.jakuza.appuserservice.model.dto.AppUserDto;
 import com.jakuza.appuserservice.model.dto.AppUserRegisterDto;
+import com.jakuza.appuserservice.repository.AddressRepository;
 import com.jakuza.appuserservice.repository.AppUserRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,7 +23,10 @@ public class AppUserService {
 	private PasswordEncoder encoder;
 
     @Autowired
-    private AppUserRepository userRepository;
+	private AppUserRepository userRepository;
+	
+	@Autowired
+	private AddressRepository addressRepository;
 
 	public List<AppUserDto> getUsers() {
 		return userRepository.findAll().stream().map(AppUserDto::fromEntity).collect(Collectors.toList());
@@ -37,20 +43,32 @@ public class AppUserService {
 							.email(userToAdd.getEmail())
 							.phoneNumbers(userToAdd.getPhoneNumbers())
 							.passwd(encoder.encode(userToAdd.getPasswordPlain()))
+							.added(LocalDateTime.now())
 							.build();
-
+		Address newAddress = Address.builder()
+								.country(userToAdd.getCountry())
+								.city(userToAdd.getCity())
+								.street(userToAdd.getStreet())
+								.houseNumber(userToAdd.getHouseNumber())
+								.zipCode(userToAdd.getZipCode())
+								.rentAppUser(newUser)
+								.build();
+		newUser.setAddress(newAddress);
+		addressRepository.save(newAddress);
 		userRepository.save(newUser);
 		return AppUserDto.fromEntity(newUser);
 	}
 
 	public AppUserDto updateUser(UUID id, AppUserDto user) {
-		AppUser userToUpdade = userRepository.findById(id).orElse(null);
-		if (userToUpdade == null) return null;
-		userToUpdade.setFirstName(user.getFirstName());
-		userToUpdade.setLastName(user.getLastName());
-		userToUpdade.setEmail(user.getEmail());
-		userRepository.save(userToUpdade);
-		return AppUserDto.fromEntity(userToUpdade);
+		return AppUserDto.fromEntity(userRepository.findById(id)
+										.map((upUser) -> {
+											upUser.setFirstName(user.getFirstName());
+											upUser.setLastName(user.getLastName());
+											upUser.setEmail(user.getEmail());
+											return userRepository.save(upUser);
+										})
+										.orElse(null)
+		);
 	}
 
     
