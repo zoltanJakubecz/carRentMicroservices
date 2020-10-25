@@ -9,10 +9,14 @@ import com.jakuza.appuserservice.repository.AppUserRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 
 @Component
 public class DataInitializer implements CommandLineRunner {
+
+    @Autowired
+    private PasswordEncoder passwordEncoder;
 
     @Autowired
     private AppUserRepository userRepo;
@@ -23,11 +27,12 @@ public class DataInitializer implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
 
-        AppUser rentAppUser1 = AppUser.builder()
+    AppUser rentAppUser1 = AppUser.builder()
         .firstName("Zotyi")
         .lastName("Motyi")
         .phoneNumber("777-6666")
         .email("kakadu@kukadu.com")
+        .passwd(passwordEncoder.encode("password"))
         .added(LocalDateTime.now())
         .build();
 
@@ -35,6 +40,7 @@ public class DataInitializer implements CommandLineRunner {
         .firstName("Elemer")
         .lastName("Lapos")
         .email("zulu@makker.hu")
+        .passwd(passwordEncoder.encode("password"))
         .phoneNumber("999-6666")
         .added(LocalDateTime.now())
         .build();
