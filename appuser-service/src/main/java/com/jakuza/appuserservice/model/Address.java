@@ -42,4 +42,9 @@ public class Address {
     private String houseNumber;
     
     private String zipCode;
+
+    @Override
+    public String toString(){
+        return houseNumber + " " + street + " street " + city + (zipCode !=null ? " " + zipCode : "" );
+    }
 }
