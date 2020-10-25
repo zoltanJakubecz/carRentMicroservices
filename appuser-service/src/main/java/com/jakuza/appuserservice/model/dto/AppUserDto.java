@@ -22,7 +22,6 @@ public class AppUserDto {
     
     private String lastName;
 
-    private String passwd;
 
     private String email;
     
@@ -36,7 +35,6 @@ public class AppUserDto {
                     .firstName(user.getFirstName())
                     .lastName(user.getLastName())
                     .phoneNumbers(user.getPhoneNumbers())
-                    .passwd(user.getPasswd())
                     .build();
 
     }
