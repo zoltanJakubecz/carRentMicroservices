@@ -3,7 +3,6 @@ package com.jakuza.appuserservice.model.dto;
 import java.util.Set;
 import java.util.UUID;
 
-import com.jakuza.appuserservice.model.Address;
 import com.jakuza.appuserservice.model.AppUser;
 
 import lombok.AllArgsConstructor;
