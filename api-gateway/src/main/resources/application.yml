@@ -14,10 +14,13 @@ zuul:
     ignoredHeaders: Access-Control-Allow-Credentials, Access-Control-Allow-Origin
     routes:
         carservice:
-            path: /**
+            path: /api/cars/**
             serviceId: car-service
         appuserservice:
             path: /api/users/**
             serviceId: appuser-service
+        rentservice:
+            path: /api/rents/**
+            serviceId: rent-service 
 
 

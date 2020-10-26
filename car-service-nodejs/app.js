@@ -13,7 +13,7 @@ app.use(express.json());
 app.use(express.static('public'));
 
 
-app.use('/api/cars', carRoute);
+app.use(carRoute);
 
 const PORT = process.env.PORT || 8081;
 

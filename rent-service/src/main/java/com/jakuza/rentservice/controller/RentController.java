@@ -17,13 +17,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/api/rent")
+// @RequestMapping("/api/rent")
 public class RentController {
 
     @Autowired
     private RentService rentService;
 
-    @GetMapping
+    @GetMapping("/")
     public ResponseEntity<List<RentalDto>> getRents(){
         return ResponseEntity.ok().body(rentService.getRents());
     }
