@@ -8,7 +8,8 @@ router.get('/', async (req, res) => {
         try {
             const cars = await service.getCars();
             for(car of cars.rows){
-                if(car.image) car.image = `${baseUrl}/imgs/${car.image}`;
+                if(car.image) car.image = `${baseUrl}/api/cars/imgs/${car.image}`;
+                else car.image = `${baseUrl}/api/cars/imgs/no-picture-available.jpg`;
             }
             res.status(200).json(cars.rows);            
         } catch (error) {
