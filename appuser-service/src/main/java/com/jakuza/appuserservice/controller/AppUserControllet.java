@@ -14,17 +14,15 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/api/users")
 public class AppUserControllet {
 
     @Autowired
     private AppUserService userService;
 
-    @GetMapping
+    @GetMapping("/")
     public ResponseEntity<List<AppUserDto>> getUsers(){
         return ResponseEntity.ok().body(userService.getUsers());
     }

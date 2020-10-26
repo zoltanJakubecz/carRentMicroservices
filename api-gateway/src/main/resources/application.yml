@@ -1,0 +1,23 @@
+server:
+    port: 8762
+
+spring:
+    application:
+        name: apigateway
+
+eureka.client:
+    serviceUrl:
+        defaultZone: http://localhost:8761/eureka
+
+zuul:
+    ignoredServices: '*'
+    ignoredHeaders: Access-Control-Allow-Credentials, Access-Control-Allow-Origin
+    routes:
+        carservice:
+            path: /**
+            serviceId: car-service
+        appuserservice:
+            path: /api/users/**
+            serviceId: appuser-service
+
+
