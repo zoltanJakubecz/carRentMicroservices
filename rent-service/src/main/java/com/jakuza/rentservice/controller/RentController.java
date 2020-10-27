@@ -16,7 +16,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-// @RequestMapping("/api/rent")
 public class RentController {
 
     @Autowired
@@ -32,7 +31,7 @@ public class RentController {
         return ResponseEntity.ok().body(rentService.getRentsForCar(car_id));
     }
 
-    @PostMapping
+    @PostMapping("/")
     public ResponseEntity<RentalDto> addRental(@RequestBody RentalIncomeDto newRental){
         return ResponseEntity.ok().body(rentService.addRental(newRental));
     }
