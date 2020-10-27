@@ -1,8 +1,9 @@
 const pool = require('../database/db');
 const uuid = require('uuid');
+const rentService = require('./rent.service');
 
 
-const getCars = async () => {
+const findAll = async () => {
     try {
         return await pool.query("SELECT * FROM car;");
     } catch (error) {
@@ -11,7 +12,10 @@ const getCars = async () => {
 };
 
 const find = async (id) => {
-    return await pool.query("SELECT * FROM car WHERE id = $1", [id]);
+    const rents = await rentService.getRents(id);
+    console.log(rents);
+    car = await pool.query("SELECT * FROM car WHERE id = $1", [id]);
+    return car;
 }
 
 const addCar = async (newCar) => {
@@ -31,7 +35,7 @@ const update = async (id, body) => {
 
 
 module.exports = {
-    getCars,
+    findAll,
     find,
     addCar,
     update
