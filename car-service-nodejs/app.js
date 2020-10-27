@@ -6,7 +6,6 @@ const app = express();
 const eurekaHelper = require('./eureka-helper');
 
 const carRoute = require('./routes/CarRoute');
-const { options } = require('./routes/CarRoute');
 
 app.use(cors());
 app.use(express.json());
