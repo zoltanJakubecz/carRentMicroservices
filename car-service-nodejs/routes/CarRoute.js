@@ -6,7 +6,7 @@ const baseUrl = process.env.BACKEND_URL;
 
 router.get('/', async (req, res) => {
         try {
-            const cars = await service.getCars();
+            const cars = await service.findAll();
             for(car of cars.rows){
                 if(car.image) car.image = `${baseUrl}/api/cars/imgs/${car.image}`;
                 else car.image = `${baseUrl}/api/cars/imgs/no-picture-available.jpg`;
