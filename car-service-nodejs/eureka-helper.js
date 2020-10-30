@@ -33,6 +33,9 @@ client.logger.level('debug')
 
 client.start( error => {
     console.log(error || "user service registered")
+    const instances = client.getInstancesByAppId('rent-service');
+    process.env.RENT_URL = instances[0].homePageUrl;
+    // console.log(instances);
 });
 
 

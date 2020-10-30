@@ -12,9 +12,10 @@ const findAll = async () => {
 };
 
 const find = async (id) => {
-    const rents = await rentService.getRents(id);
-    console.log(rents);
+    rents = await rentService.getRents(id);
+    // console.log(rents);
     car = await pool.query("SELECT * FROM car WHERE id = $1", [id]);
+    car.rows[0].rents = rents;
     return car;
 }
 

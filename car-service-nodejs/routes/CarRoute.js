@@ -22,6 +22,7 @@ router.get('/', async (req, res) => {
 router.get('/:id', async (req, res) => {
     try {
         const car = await service.find(req.params.id);
+        console.log(car.rows[0].rents)
         if(!car.rows[0]) res.status(404).send('The given id was not found');
         res.status(200).send(car.rows[0]);
         

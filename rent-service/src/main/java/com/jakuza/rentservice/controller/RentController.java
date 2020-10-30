@@ -26,7 +26,7 @@ public class RentController {
         return ResponseEntity.ok().body(rentService.getRents());
     }
     
-    @GetMapping("/{car_id}")
+    @GetMapping("/bycars/{car_id}")
     public ResponseEntity<List<RentalDto>> getRentsForCar(@PathVariable UUID car_id){
         return ResponseEntity.ok().body(rentService.getRentsForCar(car_id));
     }

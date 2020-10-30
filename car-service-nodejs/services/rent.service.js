@@ -1,7 +1,7 @@
 const axios = require('axios');
 
 const getRents = async (id) => {
-    const resp = await axios.get(`http://localhost:8071/${id}`);
+    const resp = await axios.get(`${process.env.RENT_URL}bycars/${id}`);
     return resp.data;
 }
 
