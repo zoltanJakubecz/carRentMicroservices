@@ -5,6 +5,12 @@ const getRents = async (id) => {
     return resp.data;
 }
 
+const getAll = async () => {
+    const resp = await axios.get(process.env.RENT_URL);
+    console.log(resp.data);
+}
+
 module.exports = {
-    getRents
+    getRents,
+    getAll
 }

@@ -5,7 +5,14 @@ const rentService = require('./rent.service');
 
 const findAll = async () => {
     try {
-        return await pool.query("SELECT * FROM car;");
+        await rentService.getAll();
+        const cars = await pool.query("SELECT id, brand, model, image FROM car WHERE active = true;");
+        for(car of cars.rows){
+            // console.log(car);
+            car.rents = await rentService.getRents(car.id) || [];
+        }
+        console.log(cars.rows);
+        return cars;
     } catch (error) {
         console.error(error.message);
     }    
@@ -13,8 +20,8 @@ const findAll = async () => {
 
 const find = async (id) => {
     rents = await rentService.getRents(id);
-    // console.log(rents);
-    car = await pool.query("SELECT * FROM car WHERE id = $1", [id]);
+    console.log(rents);
+    car = await pool.query("SELECT id, brand, image, model, image, active FROM car WHERE id = $1", [id]);
     car.rows[0].rents = rents;
     return car;
 }
