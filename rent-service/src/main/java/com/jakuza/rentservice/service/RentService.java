@@ -16,7 +16,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class RentService {
 
-    @Autowired
+	@Autowired
 	private RentalRepository rentalRepository;
 	
 	public List<RentalDto> getRents(){
