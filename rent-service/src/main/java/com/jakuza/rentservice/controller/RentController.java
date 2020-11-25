@@ -15,11 +15,16 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+
 @RestController
 public class RentController {
 
-    @Autowired
-    private RentService rentService;
+    
+    private final RentService rentService;
+
+    public RentController(RentService service){
+        this.rentService = service;
+    }
 
     @GetMapping("/")
     public ResponseEntity<List<RentalDto>> getRents(){
