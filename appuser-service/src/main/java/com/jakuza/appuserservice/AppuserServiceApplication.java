@@ -32,8 +32,8 @@ public class AppuserServiceApplication {
 	}
 
 	@Bean
-public PasswordEncoder encoder() {
-    return new BCryptPasswordEncoder();
-}
+	public PasswordEncoder encoder() {
+		return new BCryptPasswordEncoder();
+	}
 
 }
