@@ -12,21 +12,20 @@ import com.jakuza.appuserservice.model.dto.AppUserRegisterDto;
 import com.jakuza.appuserservice.repository.AddressRepository;
 import com.jakuza.appuserservice.repository.AppUserRepository;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import lombok.RequiredArgsConstructor;
+
 @Service
+@RequiredArgsConstructor
 public class AppUserService {
 
-	@Autowired
-	private PasswordEncoder encoder;
+	private final PasswordEncoder encoder;
 
-    @Autowired
-	private AppUserRepository userRepository;
+	private final AppUserRepository userRepository;
 	
-	@Autowired
-	private AddressRepository addressRepository;
+	private final AddressRepository addressRepository;
 
 	public List<AppUserDto> getUsers() {
 		return userRepository.findAll().stream().map(AppUserDto::fromEntity).collect(Collectors.toList());

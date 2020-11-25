@@ -7,22 +7,21 @@ import com.jakuza.appuserservice.model.AppUser;
 import com.jakuza.appuserservice.repository.AddressRepository;
 import com.jakuza.appuserservice.repository.AppUserRepository;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.security.crypto.password.PasswordEncoder;
 // import org.springframework.stereotype.Component;
 
+import lombok.RequiredArgsConstructor;
+
 // @Component
+@RequiredArgsConstructor
 public class DataInitializer implements CommandLineRunner {
 
-    @Autowired
-    private PasswordEncoder passwordEncoder;
+    private final PasswordEncoder passwordEncoder;
 
-    @Autowired
-    private AppUserRepository userRepo;
+    private final AppUserRepository userRepo;
 
-    @Autowired
-    private AddressRepository addressRepo;
+    private final AddressRepository addressRepo;
 
     @Override
     public void run(String... args) throws Exception {
