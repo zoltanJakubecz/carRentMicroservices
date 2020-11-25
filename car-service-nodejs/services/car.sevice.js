@@ -6,12 +6,12 @@ const rentService = require('./rent.service');
 const findAll = async () => {
     try {
         await rentService.getAll();
-        const cars = await pool.query("SELECT id, brand, model, image FROM car WHERE active = true;");
+        const cars = await pool.query("SELECT id, brand, model, image FROM car WHERE active = true ORDER BY brand;");
         for(car of cars.rows){
             // console.log(car);
             car.rents = await rentService.getRents(car.id) || [];
         }
-        console.log(cars.rows);
+        // console.log(cars.rows);
         return cars;
     } catch (error) {
         console.error(error.message);
