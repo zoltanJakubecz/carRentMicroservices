@@ -36,6 +36,10 @@ public class AppUserService {
 	}
 
 	public AppUserDto addUser(AppUserRegisterDto userToAdd){
+
+		if(!userToAdd.getPasswordPlain().equals(userToAdd.getPasswordPlainCheck())){
+			return null;
+		}
 		AppUser newUser = AppUser.builder()
 							.firstName(userToAdd.getFirstName())
 							.lastName(userToAdd.getLastName())

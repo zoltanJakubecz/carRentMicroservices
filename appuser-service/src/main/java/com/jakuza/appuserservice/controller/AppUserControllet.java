@@ -32,13 +32,13 @@ public class AppUserControllet {
         return ResponseEntity.ok().body(userService.findUser(id));    
     }
 
-    @PostMapping
+    @PostMapping("/")
     public ResponseEntity<AppUserDto> addUser(@RequestBody AppUserRegisterDto userToAdd){
         return ResponseEntity.ok().body(userService.addUser(userToAdd));
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<AppUserDto> updateUser(@PathVariable UUID id, @RequestBody AppUserDto user ){
+    public ResponseEntity<AppUserDto> updateUser(@PathVariable UUID id, @RequestBody AppUserDto user){
         return ResponseEntity.ok().body(userService.updateUser(id, user));
     }
 }

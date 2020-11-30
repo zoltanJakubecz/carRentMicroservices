@@ -20,6 +20,8 @@ public class AppUserRegisterDto {
     private String email;
 
     private String passwordPlain;
+
+    private String passwordPlainCheck;
     
     private Set<String> phoneNumbers;
 
