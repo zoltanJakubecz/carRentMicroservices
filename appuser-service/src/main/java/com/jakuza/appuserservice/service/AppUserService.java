@@ -40,24 +40,25 @@ public class AppUserService {
 		if(!userToAdd.getPasswordPlain().equals(userToAdd.getPasswordPlainCheck())){
 			return null;
 		}
+		
 		AppUser newUser = AppUser.builder()
 							.firstName(userToAdd.getFirstName())
-							.lastName(userToAdd.getLastName())
+							// .lastName(userToAdd.getLastName())
 							.email(userToAdd.getEmail())
-							.phoneNumbers(userToAdd.getPhoneNumbers())
+							// .phoneNumbers(userToAdd.getPhoneNumbers())
 							.passwd(encoder.encode(userToAdd.getPasswordPlain()))
 							.added(LocalDateTime.now())
 							.build();
-		Address newAddress = Address.builder()
-								.country(userToAdd.getCountry())
-								.city(userToAdd.getCity())
-								.street(userToAdd.getStreet())
-								.houseNumber(userToAdd.getHouseNumber())
-								.zipCode(userToAdd.getZipCode())
-								.rentAppUser(newUser)
-								.build();
-		newUser.setAddress(newAddress);
-		addressRepository.save(newAddress);
+		// Address newAddress = Address.builder()
+		// 						.country(userToAdd.getCountry())
+		// 						.city(userToAdd.getCity())
+		// 						.street(userToAdd.getStreet())
+		// 						.houseNumber(userToAdd.getHouseNumber())
+		// 						.zipCode(userToAdd.getZipCode())
+		// 						.rentAppUser(newUser)
+		// 						.build();
+		// newUser.setAddress(newAddress);
+		// addressRepository.save(newAddress);
 		userRepository.save(newUser);
 		return AppUserDto.fromEntity(newUser);
 	}
@@ -72,7 +73,5 @@ public class AppUserService {
 										})
 										.orElse(null)
 		);
-	}
-
-    
+	}   
 }

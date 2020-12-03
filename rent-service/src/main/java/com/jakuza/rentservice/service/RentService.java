@@ -10,14 +10,15 @@ import com.jakuza.rentservice.model.dto.RentalDto;
 import com.jakuza.rentservice.model.dto.RentalIncomeDto;
 import com.jakuza.rentservice.repository.RentalRepository;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import lombok.RequiredArgsConstructor;
+
 @Service
+@RequiredArgsConstructor
 public class RentService {
 
-	@Autowired
-	private RentalRepository rentalRepository;
+	private final RentalRepository rentalRepository;
 	
 	public List<RentalDto> getRents(){
 		return rentalRepository.findAll().stream().map(RentalDto::fromEntity).collect(Collectors.toList());

@@ -35,8 +35,8 @@ public class AppUserDto {
                     .email(user.getEmail())
                     .firstName(user.getFirstName())
                     .lastName(user.getLastName())
-                    .address(user.getAddress().toString())
-                    .phoneNumbers(user.getPhoneNumbers())
+                    // .address(user.getAddress().toString())
+                    // .phoneNumbers(user.getPhoneNumbers())
                     .build();
 
     }
