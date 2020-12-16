@@ -2,6 +2,7 @@ package com.jakuza.appuserservice.service;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Objects;
 import java.util.UUID;
 import java.util.stream.*;
 
@@ -32,10 +33,11 @@ public class AppUserService {
 	}
 
 	public AppUserDto findUser(UUID id) {
-		return AppUserDto.fromEntity(userRepository.findById(id).orElse(null));
+		return AppUserDto.fromEntity(Objects.requireNonNull(userRepository.findById(id).orElse(null)));
 	}
 
 	public AppUserDto addUser(AppUserRegisterDto userToAdd){
+		System.out.println(userToAdd.getPasswordPlain());
 
 		if(!userToAdd.getPasswordPlain().equals(userToAdd.getPasswordPlainCheck())){
 			return null;
@@ -43,7 +45,7 @@ public class AppUserService {
 		
 		AppUser newUser = AppUser.builder()
 							.firstName(userToAdd.getFirstName())
-							// .lastName(userToAdd.getLastName())
+							.lastName(userToAdd.getLastName())
 							.email(userToAdd.getEmail())
 							// .phoneNumbers(userToAdd.getPhoneNumbers())
 							.passwd(encoder.encode(userToAdd.getPasswordPlain()))
@@ -64,14 +66,14 @@ public class AppUserService {
 	}
 
 	public AppUserDto updateUser(UUID id, AppUserDto user) {
-		return AppUserDto.fromEntity(userRepository.findById(id)
-										.map((upUser) -> {
-											upUser.setFirstName(user.getFirstName());
-											upUser.setLastName(user.getLastName());
-											upUser.setEmail(user.getEmail());
-											return userRepository.save(upUser);
-										})
-										.orElse(null)
+		return AppUserDto.fromEntity(Objects.requireNonNull(userRepository.findById(id)
+				.map((upUser) -> {
+					upUser.setFirstName(user.getFirstName());
+					upUser.setLastName(user.getLastName());
+					upUser.setEmail(user.getEmail());
+					return userRepository.save(upUser);
+				})
+				.orElse(null))
 		);
 	}   
 }

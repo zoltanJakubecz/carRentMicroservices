@@ -5,6 +5,8 @@ import java.util.UUID;
 
 import com.jakuza.appuserservice.model.dto.AppUserDto;
 import com.jakuza.appuserservice.model.dto.AppUserRegisterDto;
+import com.jakuza.appuserservice.model.dto.LoginResponseDto;
+import com.jakuza.appuserservice.model.dto.UserCredentials;
 import com.jakuza.appuserservice.service.AppUserService;
 
 import org.springframework.http.ResponseEntity;
@@ -19,10 +21,10 @@ import org.springframework.web.bind.annotation.RestController;
 import lombok.RequiredArgsConstructor;
 
 
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "*")
 @RestController
 @RequiredArgsConstructor
-public class AppUserControllet {
+public class AppUserController {
 
     private final AppUserService userService;
 
@@ -45,5 +47,10 @@ public class AppUserControllet {
     @PutMapping("/{id}")
     public ResponseEntity<AppUserDto> updateUser(@PathVariable UUID id, @RequestBody AppUserDto user){
         return ResponseEntity.ok().body(userService.updateUser(id, user));
+    }
+
+    @GetMapping("/login")
+    public ResponseEntity<LoginResponseDto> login(@RequestBody UserCredentials userCredentials){
+        return null;
     }
 }
